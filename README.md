@@ -3,7 +3,7 @@
 ![Wordpress](/picture/Capstone_Project.jpg)
 
 
-## Transforming WordPress experience with cutting-edge solution, leveraging AWS EC2 instances, ALB, ASG, RDS, CloudWatch, SNS, CloudTrail, and S3. Harness the power of scalability and high availability while optimizing resource management. Crafted with Terraform, python and Git, this solution ensures seamless integration, all managed effortlessly through VS Code. Elevate performance and reliability with resilient architecture, backed by industry-leading technologies.
+Transforming WordPress experience with cutting-edge solution, leveraging AWS EC2 instances, ALB, ASG, RDS, CloudWatch, SNS, CloudTrail, and S3. Harness the power of scalability and high availability while optimizing resource management. Crafted with Terraform, python and Git, this solution ensures seamless integration, all managed effortlessly through VS Code. Elevate performance and reliability with resilient architecture, backed by industry-leading technologies.
 
 ### The solution would use the following tools:
 
@@ -15,29 +15,10 @@ Git: Git is a distributed version control system that is used to track changes t
 
 GitHub: GitHub is a hosting service for Git repositories. : Scalable and Fault-tolerant WordPress Website on AWS.
 
-## Project Setup
+### Project Setup
 
 WordPress is set up with RDS MySQL as the database.
 PHP version used is greater than 7.4.
-
-### Setup Components
-
-1 VPC:
-Includes 2 Public subnets and 2 Private subnets.
-1 Internet Gateway (IGW) attached.
-Separate route tables for public and private subnets.
-Security Group:
-Allows HTTP and SSH traffic.
-EC2 Instance:
-Configured with Apache, PHP, and WordPress.
-Points to RDS database for data storage.
-ELB as Application Load Balancer:
-Includes Target Group and Listener configurations.
-Auto Scaling:
-Configured with minimum 1, desired 2, and maximum 4 instances.
-Userdata:
-EC2 instances and AS instances use the same userdata.
-Downloads and configures WordPress each time an EC2 instance is launched.
 
 ### Tools
 
