@@ -11,6 +11,9 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_alarm" {
   alarm_description   = "Alarm when CPU utilization is less than or equal to 80%"
   alarm_actions       = [aws_sns_topic.sns_topic.arn]
   dimensions = {
-    InstanceId = aws_instance.instance.id
+    #InstanceId = aws_instance.instance.id
+    InstanceId = aws_instance.instance[0].id
+
+    
   }
 }

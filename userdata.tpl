@@ -78,6 +78,14 @@ DBUser=${rds_user}
 DBPassword=${rds_password}
 RDS_Endpoint=${rds_endpoint}
 
+# Create a temporary file to store the database value
+sudo touch db.txt
+sudo chmod 777 db.txt
+sudo echo "DATABASE $DBName;" >> db.txt
+sudo echo "USER $DBUser;" >> db.txt
+sudo echo "PASSWORD $DBPassword;" >> db.txt
+sudo echo "HOST $RDS_ENDPOINT;" >> db.txt
+
 
 
 # Start the Apache server and enable it to start automatically on system boot
@@ -113,3 +121,6 @@ chown -R ec2-user:apache /var/www # Change owner to ec2-user and group to apache
 chmod 2775 /var/www # Set the directory permissions
 find /var/www -type d -exec chmod 2775 {} \; # Find directories and set permissions
 find /var/www -type f -exec chmod 0664 {} \; # Find files and set permissions
+
+# Restart Apache
+sudo systemctl restart httpd

@@ -73,6 +73,20 @@ variable "LabRoleARN" {
   default     = "arn:aws:iam::891377082491:role/LabRole"
 }
 
+# Variables for RDS DB instance
+
+variable "rds_username" {
+  description = "The username for the RDS instance"
+}
+variable "rds_password" {
+  description = "The password for the RDS instance"
+  sensitive   = true
+}
+variable "rds_db_name" {
+  description = "The name of the database"
+  default     = "wordpressDb"
+}
+
 
 
 

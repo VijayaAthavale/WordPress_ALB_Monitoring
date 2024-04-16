@@ -16,9 +16,9 @@ resource "aws_db_instance" "db-instance" {
   engine_version         = "8.0.35"
   instance_class         = "db.t3.micro"
   identifier             = "db-instance2"
-  db_name                = "vijayadb1"
-  username               = "main"
-  password               = "lab-username"
+  db_name                = var.rds_db_name
+  username               = var.rds_username
+  password               = var.rds_password
   multi_az = true
 
   backup_retention_period = 7
@@ -29,13 +29,21 @@ resource "aws_db_instance" "db-instance" {
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
 
 }
-  
+ 
+#Get Database name, username, password, endpoint from above RDS
+output "rds_db_name" {
+  value = var.rds_db_name
+}
+output "rds_username" {
+  value = var.rds_username
+}
+output "rds_passwordword" {
+  value     = var.rds_password
+  sensitive = true
+}
 output "rds_endpoint" {
-  description = "rds endpoint"
   value = aws_db_instance.db-instance.endpoint
-
-
-  } 
+}
   
 
 

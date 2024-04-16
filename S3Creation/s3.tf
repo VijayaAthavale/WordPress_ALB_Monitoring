@@ -16,7 +16,7 @@ resource "aws_s3_bucket_versioning" "versioningS3" {
 }
 
 resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
-  bucket = "s3-bucket-2024-04-12-2973"
+  bucket = "s3-bucket-2024-04-15-2973"
 
   policy = jsonencode({
     "Version" : "2012-10-17",
@@ -28,7 +28,7 @@ resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
           "Service" : "cloudtrail.amazonaws.com"
         },
         "Action" : "s3:GetBucketAcl",
-        "Resource" : "arn:aws:s3:::s3-bucket-2024-04-12-2973"
+        "Resource" : "arn:aws:s3:::s3-bucket-2024-04-15-2973"
       },
       {
         "Sid" : "AWSCloudTrailWrite",
@@ -37,7 +37,7 @@ resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
           "Service" : "cloudtrail.amazonaws.com"
         },
         "Action" : "s3:PutObject",
-        "Resource" : "arn:aws:s3:::s3-bucket-2024-04-12-2973/*",
+        "Resource" : "arn:aws:s3:::s3-bucket-2024-04-15-2973/*",
         "Condition" : {
           "StringEquals" : {
             "s3:x-amz-acl" : "bucket-owner-full-control"
