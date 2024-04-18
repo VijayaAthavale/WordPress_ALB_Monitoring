@@ -19,11 +19,11 @@ resource "aws_db_instance" "db-instance" {
   db_name                = var.rds_db_name
   username               = var.rds_username
   password               = var.rds_password
-  multi_az = true
+  multi_az = false
 
   backup_retention_period = 7
-  skip_final_snapshot       = false
-  final_snapshot_identifier = "mssql-final-snapshot"
+  skip_final_snapshot       = true
+  # final_snapshot_identifier = "mssql-final-snapshot"
 
   db_subnet_group_name   = aws_db_subnet_group.db-subnet.name
   vpc_security_group_ids = [aws_security_group.rds_sg.id]

@@ -3,7 +3,6 @@ locals {
   Name="awsRestartVPC"
 
 }
-
 # VPC 
 resource "aws_vpc" "dev_vpc" {
   cidr_block = var.VPC_CIDR
@@ -50,7 +49,6 @@ resource "aws_route_table_association" "dev_rt_association" {
   route_table_id = aws_route_table.dev_rt.id
 }
 #Security Group
-
 resource "aws_security_group" "dev_sg" {
   name = "awsRestartSG"
   description = "allow ssh"
@@ -78,9 +76,7 @@ resource "aws_security_group" "dev_sg" {
   tags = {
     Name = "awsRestartSG"
   }
-}
-  
-
+}  
 resource "aws_security_group" "allow_ssh" {
   name = "allow_ssh"
   description = "Allow SSH traffic"
@@ -177,9 +173,6 @@ resource "aws_route" "private_route" {
   route_table_id = aws_route_table.private_rt.id
   destination_cidr_block = var.CIDR_BLOCK
   gateway_id = aws_internet_gateway.dev_igw.id
-
-
-  
 }
 #Associate Private Subnet1 with Route Table
 resource "aws_route_table_association" "private_rt_association" {
